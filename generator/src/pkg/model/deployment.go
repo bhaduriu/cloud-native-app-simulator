@@ -63,6 +63,7 @@ type ContainerInstance struct {
 	Ports           []ContainerPortInstance   `yaml:"ports"`
 	Volumes         []ContainerVolumeInstance `yaml:"volumeMounts"`
 	ReadinessProbe  ReadinessProbeInstance    `yaml:"readinessProbe,omitempty"`
+	Resources       ResourcesInstance         `yaml:"resources"`
 }
 
 type ContainerPortInstance struct {
@@ -83,3 +84,13 @@ type ReadinessProbeInstance struct {
     PeriodSeconds       int          `yaml:"periodSeconds"`
 }
 
+type ResourcesInstance struct {
+	ResourceLimits struct {
+		Cpu    string `yaml:"cpu"`
+		Memory string `yaml:"memory"`
+	} `yaml:"limits"`
+	ResourceRequests struct {
+		Cpu    string `yaml:"cpu"`
+		Memory string `yaml:"memory"`
+	} `yaml:"requests"`
+}

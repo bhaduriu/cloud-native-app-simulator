@@ -56,20 +56,44 @@ func CreateDeployment(metadataName, selectorAppName, selectorClusterName string,
 	containerInstance.ReadinessProbe.InitialDelaySeconds = readinessProbe
 	containerInstance.ReadinessProbe.PeriodSeconds = 1
 
+	containerInstance.ResourceLimits.Cpu = "100m"
+	// containerInstance.ResourceLimits.Memory = "100m"
+	containerInstance.ResourceRequests.Cpu = "100m"
+	//containerInstance.ResourceLimits.Memory = "100m"
+
+
 	redisContainerInstance.Ports = append(redisContainerInstance.Ports, redisContainerPortInstance)
 	redisContainerInstance.Image = redisContainerImage
 	redisContainerInstance.ImagePullPolicy = "IfNotPresent"
 	redisContainerInstance.Name = redisContainerName
+
+	redisContainerInstance.ResourceLimits.Cpu = "100m"
+	// redisContainerInstance.ResourceLimits.Memory = "100m"
+	redisContainerInstance.ResourceRequests.Cpu = "100m"
+	//redisContainerInstance.ResourceLimits.Memory = "100m"
+
 
 	workerContainerInstance.Volumes = append(workerContainerInstance.Volumes, containerVolume)
 	workerContainerInstance.Name = workerContainerName
 	workerContainerInstance.Image = workerContainerImage
 	workerContainerInstance.ImagePullPolicy = "Never"
 
+	workerContainerInstance.ResourceLimits.Cpu = "100m"
+	// workerContainerInstance.ResourceLimits.Memory = "100m"
+	workerContainerInstance.ResourceRequests.Cpu = "100m"
+	//workerContainerInstance.ResourceLimits.Memory = "100m"
+
+
 	fortioContainerInstance.Ports = append(fortioContainerInstance.Ports, fortioContainerPortInstance)
 	fortioContainerInstance.Image = fortioContainerImage
 	fortioContainerInstance.ImagePullPolicy = "IfNotPresent"
 	fortioContainerInstance.Name = fortioContainerName
+
+	fortioContainerInstance.ResourceLimits.Cpu = "100m"
+	// fortioContainerInstance.ResourceLimits.Memory = "100m"
+	fortioContainerInstance.ResourceRequests.Cpu = "100m"
+	//fortioContainerInstance.ResourceLimits.Memory = "100m"
+
 
 	deployment.APIVersion = "apps/v1"
 	deployment.Kind = "Deployment"
@@ -108,6 +132,12 @@ func CreateWorkerDeployment(metadataName, selectorName string, numberOfReplicas 
 	containerInstance.Name = containerName
 	containerInstance.Image = containerImage
 	containerInstance.ImagePullPolicy = "Never"
+	
+	containerInstance.ResourceLimits.Cpu = "100m"
+	// containerInstance.ResourceLimits.Memory = "100m"
+	containerInstance.ResourceRequests.Cpu = "100m"
+	//containerInstance.ResourceLimits.Memory = "100m"
+
 
 	deployment.APIVersion = "apps/v1"
 	deployment.Kind = "Deployment"
