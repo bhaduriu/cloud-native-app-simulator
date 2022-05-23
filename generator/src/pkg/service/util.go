@@ -56,10 +56,10 @@ func CreateDeployment(metadataName, selectorAppName, selectorClusterName string,
 	containerInstance.ReadinessProbe.InitialDelaySeconds = readinessProbe
 	containerInstance.ReadinessProbe.PeriodSeconds = 1
 
-	containerInstance.ResourceLimits.Cpu = "100m"
-	// containerInstance.ResourceLimits.Memory = "100m"
-	containerInstance.ResourceRequests.Cpu = "100m"
-	//containerInstance.ResourceLimits.Memory = "100m"
+	containerInstance.Resources.ResourceLimits.Cpu = "100m"
+	// containerInstance.Resources.ResourceLimits.Memory = "100m"
+	containerInstance.Resources.ResourceRequests.Cpu = "100m"
+	//containerInstance.Resources.ResourceLimits.Memory = "100m"
 
 
 	redisContainerInstance.Ports = append(redisContainerInstance.Ports, redisContainerPortInstance)
@@ -67,10 +67,10 @@ func CreateDeployment(metadataName, selectorAppName, selectorClusterName string,
 	redisContainerInstance.ImagePullPolicy = "IfNotPresent"
 	redisContainerInstance.Name = redisContainerName
 
-	redisContainerInstance.ResourceLimits.Cpu = "100m"
-	// redisContainerInstance.ResourceLimits.Memory = "100m"
-	redisContainerInstance.ResourceRequests.Cpu = "100m"
-	//redisContainerInstance.ResourceLimits.Memory = "100m"
+	redisContainerInstance.Resources.ResourceLimits.Cpu = "100m"
+	// redisContainerInstance.Resources.ResourceLimits.Memory = "100m"
+	redisContainerInstance.Resources.ResourceRequests.Cpu = "100m"
+	//redisContainerInstance.Resources.ResourceLimits.Memory = "100m"
 
 
 	workerContainerInstance.Volumes = append(workerContainerInstance.Volumes, containerVolume)
@@ -78,10 +78,10 @@ func CreateDeployment(metadataName, selectorAppName, selectorClusterName string,
 	workerContainerInstance.Image = workerContainerImage
 	workerContainerInstance.ImagePullPolicy = "Never"
 
-	workerContainerInstance.ResourceLimits.Cpu = "100m"
-	// workerContainerInstance.ResourceLimits.Memory = "100m"
-	workerContainerInstance.ResourceRequests.Cpu = "100m"
-	//workerContainerInstance.ResourceLimits.Memory = "100m"
+	workerContainerInstance.Resources.ResourceLimits.Cpu = "100m"
+	// workerContainerInstance.Resources.ResourceLimits.Memory = "100m"
+	workerContainerInstance.Resources.ResourceRequests.Cpu = "100m"
+	//workerContainerInstance.Resources.ResourceLimits.Memory = "100m"
 
 
 	fortioContainerInstance.Ports = append(fortioContainerInstance.Ports, fortioContainerPortInstance)
@@ -89,10 +89,10 @@ func CreateDeployment(metadataName, selectorAppName, selectorClusterName string,
 	fortioContainerInstance.ImagePullPolicy = "IfNotPresent"
 	fortioContainerInstance.Name = fortioContainerName
 
-	fortioContainerInstance.ResourceLimits.Cpu = "100m"
-	// fortioContainerInstance.ResourceLimits.Memory = "100m"
-	fortioContainerInstance.ResourceRequests.Cpu = "100m"
-	//fortioContainerInstance.ResourceLimits.Memory = "100m"
+	fortioContainerInstance.Resources.ResourceLimits.Cpu = "100m"
+	// fortioContainerInstance.Resources.ResourceLimits.Memory = "100m"
+	fortioContainerInstance.Resources.ResourceRequests.Cpu = "100m"
+	//fortioContainerInstance.Resources.ResourceLimits.Memory = "100m"
 
 
 	deployment.APIVersion = "apps/v1"
@@ -133,10 +133,10 @@ func CreateWorkerDeployment(metadataName, selectorName string, numberOfReplicas 
 	containerInstance.Image = containerImage
 	containerInstance.ImagePullPolicy = "Never"
 	
-	containerInstance.ResourceLimits.Cpu = "100m"
-	// containerInstance.ResourceLimits.Memory = "100m"
-	containerInstance.ResourceRequests.Cpu = "100m"
-	//containerInstance.ResourceLimits.Memory = "100m"
+	containerInstance.Resources.ResourceLimits.Cpu = "100m"
+	// containerInstance.Resources.ResourceLimits.Memory = "100m"
+	containerInstance.Resources.ResourceRequests.Cpu = "100m"
+	//containerInstance.Resources.ResourceLimits.Memory = "100m"
 
 
 	deployment.APIVersion = "apps/v1"
